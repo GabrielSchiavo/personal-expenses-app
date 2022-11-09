@@ -129,6 +129,12 @@ class MyHomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextButton(
+                        style: TextButton.styleFrom(
+                          side: const BorderSide(
+                            width: 1,
+                            color: Colors.purple,
+                          ),
+                        ),
                         onPressed: () {},
                         child: const Text(
                           'Nova Transação',
