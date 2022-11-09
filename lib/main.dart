@@ -128,18 +128,21 @@ class MyHomePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          side: const BorderSide(
-                            width: 1,
-                            color: Colors.purple,
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            side: const BorderSide(
+                              width: 1,
+                              color: Colors.purple,
+                            ),
                           ),
-                        ),
-                        onPressed: () {},
-                        child: const Text(
-                          'Nova Transação',
-                          style: TextStyle(
-                            color: Colors.purple,
+                          onPressed: () {},
+                          child: const Text(
+                            'Nova Transação',
+                            style: TextStyle(
+                              color: Colors.purple,
+                            ),
                           ),
                         ),
                       ),
