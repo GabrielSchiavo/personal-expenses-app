@@ -26,4 +26,5 @@ TESTE
 ## :white_check_mark: Tecnologias utilizadas
 * `Dart - 2.18.2`
 * `Flutter - 3.3.6`
+* `intl - 0.17.0`
 * `Material Design 3`
