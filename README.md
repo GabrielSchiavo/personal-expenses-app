@@ -1,16 +1,29 @@
-# expenses
+# personal-expenses-app
 
-A new Flutter project.
+<p align="left">
+   <!-- <img src="https://img.shields.io/badge/Status-Conclu%C3%ADdo-brightgreen?style=for-the-badge"/> -->
+   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-orange?style=for-the-badge"/>
+   <!-- <img src="https://img.shields.io/github/license/GabrielSchiavo/to-do-list?color=blue&style=for-the-badge"/> -->
+</p>
 
-## Getting Started
+DESCRIÇÃO
 
-This project is a starting point for a Flutter application.
+## :hammer: Funcionalidades do projeto
+* `TESTE`: TESTE.
 
-A few resources to get you started if this is your first Flutter project:
+<br>
+<div display: inline_block align="center">
+   <!-- <img src="./lib/assets/img/screenshots/screenshot_01.png" width="300" alt="Screenshot pergunta 1"/>
+   <img src="./lib/assets/img/screenshots/screenshot_02.png" width="300" alt="Screenshot tela conclusão"/> -->
+</div>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## :file_folder: Acesso ao projeto
+Você pode [acessar o código-fonte do projeto](https://github.com/GabrielSchiavo/personal-expenses-app) ou [baixá-lo](https://github.com/GabrielSchiavo/personal-expenses-app/archive/refs/heads/main.zip).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 	:hammer_and_wrench: Abrir e rodar o projeto
+TESTE
+
+## :white_check_mark: Tecnologias utilizadas
+* `Dart - 2.18.2`
+* `Flutter - 3.3.6`
+* `Material Design 3`
