@@ -6,10 +6,12 @@
    <!-- <img src="https://img.shields.io/github/license/GabrielSchiavo/to-do-list?color=blue&style=for-the-badge"/> -->
 </p>
 
-DESCRIÇÃO
+App para cadastro de despesas pessoais desenvolvido com a linguagem Dart e framework Flutter.
 
 ## :hammer: Funcionalidades do projeto
-* `TESTE`: TESTE.
+* `Cadastro de despesas`: cadastro de despesas de cada dia da semana, com data, título e valor.
+* `Exclusão de despesas`: opção para excluir determinadas despesas.
+* `Gráfico`: gráfico do total de despesas em cada dia da semana.
 
 <br>
 <div display: inline_block align="center">
@@ -20,8 +22,14 @@ DESCRIÇÃO
 ## :file_folder: Acesso ao projeto
 Você pode [acessar o código-fonte do projeto](https://github.com/GabrielSchiavo/personal-expenses-app) ou [baixá-lo](https://github.com/GabrielSchiavo/personal-expenses-app/archive/refs/heads/main.zip).
 
-## 	:hammer_and_wrench: Abrir e rodar o projeto
-TESTE
+## :hammer_and_wrench: Abrir e rodar o projeto
+Após baixar o projeto, você pode abrir com o Visual Studio Code. Para o projeto funcionar você deve ter configurado em seu PC:
+
+* Flutter - Versão >= 3.3.6
+
+Abra um terminal na pasta raiz do projeto e execute este comando "dart pub get".
+
+Agora ao abrir o projeto com o Visual Studio Code, abra o arquivo "main.dart" localizado na pasta "lib", agora pode executar ou depurar no seu smartphone, em um emulador Android ou iOS, no Windows ou no navegador.
 
 ## :white_check_mark: Tecnologias utilizadas
 * `Dart - 2.18.2`
