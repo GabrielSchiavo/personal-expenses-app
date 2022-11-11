@@ -25,7 +25,7 @@ Você pode [acessar o código-fonte do projeto](https://github.com/GabrielSchiav
 ## :hammer_and_wrench: Abrir e rodar o projeto
 Após baixar o projeto, você pode abrir com o Visual Studio Code. Para o projeto funcionar você deve ter configurado em seu PC:
 
-* Flutter - Versão >= 3.3.6
+* Flutter - Versão >=2.18.2 <3.0.0
 
 Abra um terminal na pasta raiz do projeto e execute este comando "dart pub get".
 
