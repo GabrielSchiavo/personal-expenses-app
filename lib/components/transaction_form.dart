@@ -52,14 +52,14 @@ class TransactionForm extends StatelessWidget {
                     style: TextButton.styleFrom(
                       side: const BorderSide(
                         width: 1,
-                        color: Colors.purple,
+                        color: Colors.deepPurple,
                       ),
                     ),
                     onPressed: _submitForm,
                     child: const Text(
                       'Nova Transação',
                       style: TextStyle(
-                        color: Colors.purple,
+                        color: Colors.deepPurple,
                       ),
                     ),
                   ),
