@@ -18,32 +18,41 @@ class ExpensesApp extends StatelessWidget {
       theme: tema.copyWith(
         useMaterial3: true,
         colorScheme: tema.colorScheme.copyWith(
-            primary: Colors.deepPurple,
-            secondary: Colors.deepPurple[600],
-            // secondary: Colors.amber,
-            tertiary: Colors.white),
+          primary: const Color(0xFFC9BEFF),
+          onPrimary: const Color(0xFF312075),
+          primaryContainer: const Color(0xFF48398D),
+          onPrimaryContainer: const Color(0xFFE6DEFF),
+          secondary: const Color(0xFFC9C3DC),
+          background: const Color(0xFF1C1B1F),
+          onBackground: const Color(0xFFE5E1E6),
+          outline: const Color(0xFF938F99),
+          shadow: const Color(0xFF000000)
+        ),
         textTheme: tema.textTheme.copyWith(
-          headline6: const TextStyle(
-            fontFamily: 'OpenSans',
-            fontSize: 17,
+          headlineSmall: const TextStyle(
+            fontFamily: 'RobotoFlex',
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Color(0xFFE5E1E6),
           ),
-          headline5: const TextStyle(
-            fontFamily: 'Quicksand',
-            fontSize: 20,
+          titleLarge: const TextStyle(
+            fontFamily: 'RobotoFlex',
             fontWeight: FontWeight.bold,
-            color: Colors.deepPurple,
+            color: Color(0xFFE5E1E6),
           ),
-          headline4: const TextStyle(
-            fontFamily: 'Quicksand',
-            fontSize: 14,
-            color: Colors.grey,
+          titleMedium: const TextStyle(
+            fontFamily: 'RobotoFlex',
+            fontWeight: FontWeight.bold,
+            color: Color(0xFFE5E1E6),
+          ),
+          labelMedium: const TextStyle(
+            fontFamily: 'RobotoFlex',
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF938F99),
           ),
         ),
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
-            fontFamily: 'OpenSans',
+            fontFamily: 'RobotoFlex',
             fontSize: 20,
             fontWeight: FontWeight.w500,
           ),
@@ -104,17 +113,19 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
+  
       appBar: AppBar(
         title: const Text(
           'Despesas Pessoais',
         ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        foregroundColor: Theme.of(context).colorScheme.tertiary,
+        backgroundColor: Theme.of(context).colorScheme.background,
+        foregroundColor: Theme.of(context).colorScheme.onBackground,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () => _openTransactionFormModal(context),
-            color: Theme.of(context).colorScheme.tertiary,
+            color: Theme.of(context).colorScheme.onBackground,
           ),
         ],
       ),
@@ -127,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(
                 width: double.infinity,
                 child: Card(
-                  color: Colors.blue,
+                  color: Colors.purple,
                   elevation: 5,
                   child: Text('Gráfico'),
                 ),
@@ -138,8 +149,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         onPressed: () => _openTransactionFormModal(context),
+        elevation: 5,
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,

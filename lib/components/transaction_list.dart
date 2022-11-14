@@ -18,7 +18,7 @@ class TransactionList extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                   child: Text(
                     'Nenhuma Despesa Cadastrada!',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
                 SizedBox(
@@ -36,8 +36,19 @@ class TransactionList extends StatelessWidget {
               itemBuilder: (ctx, index) {
                 final tr = transactions[index];
                 return Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: Card(
+                    clipBehavior: Clip.none,
+                    color: Theme.of(context).colorScheme.background,
+                    shadowColor: Theme.of(context).colorScheme.shadow,
+                    surfaceTintColor: Theme.of(context).colorScheme.primary,
+                    elevation: 3,
+                    // shape: RoundedRectangleBorder(
+                    //   side: BorderSide(
+                    //     color: Theme.of(context).colorScheme.outline,
+                    //   ),
+                    //   borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    // ),
                     child: Row(
                       children: <Widget>[
                         Container(
@@ -45,24 +56,26 @@ class TransactionList extends StatelessWidget {
                               horizontal: 15, vertical: 10),
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: Theme.of(context).colorScheme.primary,
+                              color: Theme.of(context).colorScheme.onBackground,
                               width: 2,
                             ),
                           ),
                           padding: const EdgeInsets.all(10),
                           child: Text(
                             "R\$ ${tr.value.toStringAsFixed(2)}",
-                            style: Theme.of(context).textTheme.headline5,
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(tr.title,
-                                style: Theme.of(context).textTheme.headline6),
+                            Text(
+                              tr.title,
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
                             Text(
                               DateFormat('d MMM y').format(tr.date),
-                              style: Theme.of(context).textTheme.headline4,
+                              style: Theme.of(context).textTheme.labelMedium,
                             ),
                           ],
                         ),

@@ -28,16 +28,40 @@ class _TransactionFormState extends State<TransactionForm> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
+      margin: const EdgeInsets.all(0),
+      semanticContainer: true,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      color: Theme.of(context).colorScheme.background,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(0),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            TextField(
-              controller: titleController,
-              onSubmitted: (_) => _submitForm(),
-              decoration: const InputDecoration(
-                labelText: 'Título',
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 8, 0, 18),
+              child: TextField(
+                controller: titleController,
+                onSubmitted: (_) => _submitForm(),
+                decoration: const InputDecoration(
+                  labelText: 'Título',
+                  labelStyle: TextStyle(
+                    color: Color(0xFFE5E1E6),
+                    fontWeight: FontWeight.normal,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFE5E1E6),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFE5E1E6),
+                    ),
+                  ),
+                ),
               ),
             ),
             TextField(
@@ -47,6 +71,20 @@ class _TransactionFormState extends State<TransactionForm> {
               onSubmitted: (_) => _submitForm(),
               decoration: const InputDecoration(
                 labelText: 'Valor (R\$)',
+                labelStyle: TextStyle(
+                  color: Color(0xFFE5E1E6),
+                  fontWeight: FontWeight.normal,
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color(0xFFE5E1E6),
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color(0xFFE5E1E6),
+                  ),
+                ),
               ),
             ),
             Row(
@@ -61,12 +99,13 @@ class _TransactionFormState extends State<TransactionForm> {
                       //   width: 1,
                       //   color: Colors.deepPurple,
                       // ),
+                      
                     ),
                     onPressed: _submitForm,
                     child: const Text(
                       'Nova Transação',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color(0xFF312075),
                       ),
                     ),
                   ),
