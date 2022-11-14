@@ -31,12 +31,10 @@ class ExpensesApp extends StatelessWidget {
         textTheme: tema.textTheme.copyWith(
           headlineSmall: const TextStyle(
             fontFamily: 'RobotoFlex',
-            fontWeight: FontWeight.bold,
             color: Color(0xFFE5E1E6),
           ),
           titleLarge: const TextStyle(
             fontFamily: 'RobotoFlex',
-            fontWeight: FontWeight.bold,
             color: Color(0xFFE5E1E6),
           ),
           titleMedium: const TextStyle(
@@ -46,7 +44,6 @@ class ExpensesApp extends StatelessWidget {
           ),
           labelMedium: const TextStyle(
             fontFamily: 'RobotoFlex',
-            fontWeight: FontWeight.bold,
             color: Color(0xFF938F99),
           ),
         ),
