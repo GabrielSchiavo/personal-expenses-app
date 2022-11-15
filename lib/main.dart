@@ -138,6 +138,8 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Theme.of(context).colorScheme.onBackground,
           ),
         ],
+        
+        //Altera a cor e os icones da statusBar
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Color(0xFF1C1B1F),
           statusBarIconBrightness: Brightness.light,
