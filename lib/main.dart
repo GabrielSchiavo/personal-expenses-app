@@ -20,15 +20,16 @@ class ExpensesApp extends StatelessWidget {
       theme: tema.copyWith(
         useMaterial3: true,
         colorScheme: tema.colorScheme.copyWith(
-            primary: const Color(0xFFC9BEFF),
-            onPrimary: const Color(0xFF312075),
-            primaryContainer: const Color(0xFF48398D),
-            onPrimaryContainer: const Color(0xFFE6DEFF),
-            secondary: const Color(0xFFC9C3DC),
-            background: const Color(0xFF1C1B1F),
-            onBackground: const Color(0xFFE5E1E6),
-            outline: const Color(0xFF938F99),
-            shadow: const Color(0xFF000000),),
+          primary: const Color(0xFFC9BEFF),
+          onPrimary: const Color(0xFF312075),
+          primaryContainer: const Color(0xFF48398D),
+          onPrimaryContainer: const Color(0xFFE6DEFF),
+          secondary: const Color(0xFFC9C3DC),
+          background: const Color(0xFF1C1B1F),
+          onBackground: const Color(0xFFE5E1E6),
+          outline: const Color(0xFF938F99),
+          shadow: const Color(0xFF000000),
+        ),
         textTheme: tema.textTheme.copyWith(
           headlineSmall: const TextStyle(
             fontFamily: 'RobotoFlex',
@@ -138,10 +139,10 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarColor: Color(0xFF1C1B1F),
-            statusBarIconBrightness: Brightness.light,
-            statusBarBrightness: Brightness.dark,
-          ),
+          statusBarColor: Color(0xFF1C1B1F),
+          statusBarIconBrightness: Brightness.light,
+          statusBarBrightness: Brightness.dark,
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
