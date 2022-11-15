@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:personal_expenses/components/chart.dart';
 import 'dart:math';
 import './components/transaction_form.dart';
@@ -27,7 +28,7 @@ class ExpensesApp extends StatelessWidget {
             background: const Color(0xFF1C1B1F),
             onBackground: const Color(0xFFE5E1E6),
             outline: const Color(0xFF938F99),
-            shadow: const Color(0xFF000000)),
+            shadow: const Color(0xFF000000),),
         textTheme: tema.textTheme.copyWith(
           headlineSmall: const TextStyle(
             fontFamily: 'RobotoFlex',
@@ -136,6 +137,11 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Theme.of(context).colorScheme.onBackground,
           ),
         ],
+        systemOverlayStyle: const SystemUiOverlayStyle(
+            statusBarColor: Color(0xFF1C1B1F),
+            statusBarIconBrightness: Brightness.light,
+            statusBarBrightness: Brightness.dark,
+          ),
       ),
       body: SingleChildScrollView(
         child: Padding(

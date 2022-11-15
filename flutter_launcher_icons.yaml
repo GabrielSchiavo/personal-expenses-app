@@ -15,3 +15,6 @@ flutter_icons:
     generate: true
     image_path: "assets/icons/icon.png"
     icon_size: 256 # min:48, max:256, default: 48
+
+# Executar este comando no terminal para gerar os icones do app
+# flutter pub run flutter_launcher_icons:main
