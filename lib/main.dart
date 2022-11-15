@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_expenses/components/chart.dart';
 import 'dart:math';
 import './components/transaction_form.dart';
 import './components/transaction_list.dart';
@@ -18,16 +19,15 @@ class ExpensesApp extends StatelessWidget {
       theme: tema.copyWith(
         useMaterial3: true,
         colorScheme: tema.colorScheme.copyWith(
-          primary: const Color(0xFFC9BEFF),
-          onPrimary: const Color(0xFF312075),
-          primaryContainer: const Color(0xFF48398D),
-          onPrimaryContainer: const Color(0xFFE6DEFF),
-          secondary: const Color(0xFFC9C3DC),
-          background: const Color(0xFF1C1B1F),
-          onBackground: const Color(0xFFE5E1E6),
-          outline: const Color(0xFF938F99),
-          shadow: const Color(0xFF000000)
-        ),
+            primary: const Color(0xFFC9BEFF),
+            onPrimary: const Color(0xFF312075),
+            primaryContainer: const Color(0xFF48398D),
+            onPrimaryContainer: const Color(0xFFE6DEFF),
+            secondary: const Color(0xFFC9C3DC),
+            background: const Color(0xFF1C1B1F),
+            onBackground: const Color(0xFFE5E1E6),
+            outline: const Color(0xFF938F99),
+            shadow: const Color(0xFF000000)),
         textTheme: tema.textTheme.copyWith(
           headlineSmall: const TextStyle(
             fontFamily: 'RobotoFlex',
@@ -40,6 +40,11 @@ class ExpensesApp extends StatelessWidget {
           titleMedium: const TextStyle(
             fontFamily: 'RobotoFlex',
             fontWeight: FontWeight.bold,
+            color: Color(0xFFE5E1E6),
+          ),
+          labelLarge: const TextStyle(
+            fontFamily: 'RobotoFlex',
+            fontSize: 12,
             color: Color(0xFFE5E1E6),
           ),
           labelMedium: const TextStyle(
@@ -68,19 +73,27 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [
-    // Transaction(
-    //   id: 't1',
-    //   title: 'Novo Tênis de Corrida',
-    //   value: 310.76,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'Conta de Luz',
-    //   value: 211.30,
-    //   date: DateTime.now(),
-    // ),
+    Transaction(
+      id: 't1',
+      title: 'Novo Tênis de Corrida',
+      value: 310.76,
+      date: DateTime.now().subtract(const Duration(days: 3)),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.30,
+      date: DateTime.now().subtract(const Duration(days: 4)),
+    ),
   ];
+
+  List<Transaction> get _recentTransactions {
+    return _transactions.where((tr) {
+      return tr.date.isAfter(DateTime.now().subtract(
+        const Duration(days: 7),
+      ));
+    }).toList();
+  }
 
   _addTransaction(String title, double value) {
     final newTransaction = Transaction(
@@ -111,7 +124,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-  
       appBar: AppBar(
         title: const Text(
           'Despesas Pessoais',
@@ -132,14 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              const SizedBox(
-                width: double.infinity,
-                child: Card(
-                  color: Colors.purple,
-                  elevation: 5,
-                  child: Text('Gráfico'),
-                ),
-              ),
+              Chart(_recentTransactions),
               TransactionList(_transactions),
             ],
           ),

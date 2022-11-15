@@ -70,6 +70,7 @@ class _TransactionFormState extends State<TransactionForm> {
                   const TextInputType.numberWithOptions(decimal: true),
               onSubmitted: (_) => _submitForm(),
               decoration: const InputDecoration(
+                
                 labelText: 'Valor (R\$)',
                 labelStyle: TextStyle(
                   color: Color(0xFFE5E1E6),
