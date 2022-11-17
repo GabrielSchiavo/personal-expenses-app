@@ -37,7 +37,7 @@ class _TransactionFormState extends State<TransactionForm> {
           colorScheme: ColorScheme.dark(
             primary: Theme.of(context).colorScheme.primary,
             onPrimary: Theme.of(context).colorScheme.onPrimary,
-            surface: const Color(0xFF48398D),
+            surface: Theme.of(context).colorScheme.primaryContainer,
           ),
           dialogBackgroundColor: Theme.of(context).colorScheme.background,
         ),
