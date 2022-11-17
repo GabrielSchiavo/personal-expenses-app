@@ -96,6 +96,10 @@ class _TransactionFormState extends State<TransactionForm> {
                     color: Color(0xFFE5E1E6),
                     fontWeight: FontWeight.normal,
                   ),
+                  hintText: 'Digite um título',
+                  hintStyle: TextStyle(
+                    color: Color(0xFF938F99),
+                  ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0xFFE5E1E6),
@@ -122,13 +126,13 @@ class _TransactionFormState extends State<TransactionForm> {
                     color: Color(0xFFE5E1E6),
                   ),
                   labelText: 'Valor',
-                  hintText: '0.00',
-                  hintStyle: TextStyle(
-                    color: Color(0xFF938F99),
-                  ),
                   labelStyle: TextStyle(
                     color: Color(0xFFE5E1E6),
                     fontWeight: FontWeight.normal,
+                  ),
+                  hintText: '000.00',
+                  hintStyle: TextStyle(
+                    color: Color(0xFF938F99),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -155,13 +159,13 @@ class _TransactionFormState extends State<TransactionForm> {
                   color: Color(0xFFE5E1E6),
                 ),
                 labelText: 'Data',
-                hintText: 'dd/mm/aaaa',
-                hintStyle: TextStyle(
-                  color: Color(0xFF938F99),
-                ),
                 labelStyle: TextStyle(
                   color: Color(0xFFE5E1E6),
                   fontWeight: FontWeight.normal,
+                ),
+                hintText: 'dd/mm/aaaa',
+                hintStyle: TextStyle(
+                  color: Color(0xFF938F99),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
