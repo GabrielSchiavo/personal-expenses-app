@@ -9,14 +9,14 @@
 App para cadastro de despesas pessoais desenvolvido com a linguagem Dart e framework Flutter.
 
 ## :hammer: Funcionalidades do projeto
-* `Cadastro de despesas`: cadastro de despesas de cada dia da semana, com data, título e valor.
-* `Exclusão de despesas`: opção para excluir determinadas despesas.
-* `Gráfico`: gráfico do total de despesas em cada dia da semana.
+* `Cadastro de despesas`: cadastro de despesas com data, título e valor.
+* `Exclusão de despesas`: opção para excluir determinadas despesas cadastradas.
+* `Gráfico`: gráfico com o total de despesas em cada dia da semana.
 
 <br>
 <div display: inline_block align="center">
-   <!-- <img src="./lib/assets/img/screenshots/screenshot_01.png" width="300" alt="Screenshot pergunta 1"/>
-   <img src="./lib/assets/img/screenshots/screenshot_02.png" width="300" alt="Screenshot tela conclusão"/> -->
+   <img src="./lib/assets/img/screenshots/screenshot_01.png" width="300" alt="Screenshot pergunta 1"/>
+   <img src="./lib/assets/img/screenshots/screenshot_02.png" width="300" alt="Screenshot tela conclusão"/>
 </div>
 
 ## :file_folder: Acesso ao projeto
