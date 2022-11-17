@@ -14,8 +14,6 @@ class _TransactionFormState extends State<TransactionForm> {
   final _titleController = TextEditingController();
   final _valueController = TextEditingController();
 
-  // String dateNowString = DateFormat('dd/MM/y').format(DateTime.now());
-  // DateTime? _selectedDate;
   final TextEditingController _selectedDate = TextEditingController();
 
   _submitForm() {
@@ -50,14 +48,6 @@ class _TransactionFormState extends State<TransactionForm> {
         child: child!,
       ),
     ).then((pickedDate) {
-      // if (pickedDate == null) {
-      //   return;
-      // }
-
-      // setState(() {
-      //   _selectedDate = pickedDate;
-      // });
-
       if (pickedDate != null) {
         setState(() {
           _selectedDate.text = DateFormat('dd/MM/y').format(pickedDate);
@@ -89,7 +79,7 @@ class _TransactionFormState extends State<TransactionForm> {
                 decoration: const InputDecoration(
                   suffixIcon: Icon(
                     Icons.title_rounded,
-                    color: Color(0xFFE5E1E6),
+                    color: Color(0xFF938F99),
                   ),
                   labelText: 'Título',
                   labelStyle: TextStyle(
@@ -102,14 +92,15 @@ class _TransactionFormState extends State<TransactionForm> {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color(0xFFE5E1E6),
+                      color: Color(0xFF938F99),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color(0xFFE5E1E6),
+                      color: Color(0xFFC9BEFF),
                     ),
                   ),
+                  focusColor: Color(0xFFC9BEFF),
                 ),
               ),
             ),
@@ -123,7 +114,7 @@ class _TransactionFormState extends State<TransactionForm> {
                 decoration: const InputDecoration(
                   suffixIcon: Icon(
                     Icons.attach_money_rounded,
-                    color: Color(0xFFE5E1E6),
+                    color: Color(0xFF938F99),
                   ),
                   labelText: 'Valor',
                   labelStyle: TextStyle(
@@ -136,14 +127,15 @@ class _TransactionFormState extends State<TransactionForm> {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color(0xFFE5E1E6),
+                      color: Color(0xFF938F99),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color(0xFFE5E1E6),
+                      color: Color(0xFFC9BEFF),
                     ),
                   ),
+                  focusColor: Color(0xFFC9BEFF),
                 ),
               ),
             ),
@@ -156,7 +148,7 @@ class _TransactionFormState extends State<TransactionForm> {
               decoration: const InputDecoration(
                 suffixIcon: Icon(
                   Icons.calendar_today_rounded,
-                  color: Color(0xFFE5E1E6),
+                  color: Color(0xFF938F99),
                 ),
                 labelText: 'Data',
                 labelStyle: TextStyle(
@@ -169,57 +161,18 @@ class _TransactionFormState extends State<TransactionForm> {
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFE5E1E6),
+                    color: Color(0xFF938F99),
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Color(0xFFE5E1E6),
+                    color: Color(0xFFC9BEFF),
                   ),
                 ),
+                focusColor: Color(0xFFC9BEFF),
               ),
               onTap: _showDatePicker,
             ),
-            // SizedBox(
-            //   height: 80,
-            //   child: Row(
-            //     children: [
-            //       Expanded(
-            //         child: Text(
-            //           _selectedDate == null
-            //               ? 'Nenhuma data selecionada!'
-            //               : 'Data Selecionada: ${DateFormat('dd/MM/y').format(_selectedDate!)}',
-            //           style: const TextStyle(
-            //             color: Color(0xFFE5E1E6),
-            //           ),
-            //         ),
-            //       ),
-            //       TextButton.icon(
-            //         style: TextButton.styleFrom(
-            //           // side: const BorderSide(
-            //           //   width: 1.3,
-            //           //   color: Color(0xFFE5E1E6),
-            //           // ),
-            //           backgroundColor: Theme.of(context).colorScheme.background,
-            //         ),
-            //         icon: const Icon(
-            //           Icons.calendar_today_rounded,
-            //           color: Color(0xFFE5E1E6),
-            //         ),
-            //         onPressed: _showDatePicker,
-            //         label: const Padding(
-            //           padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-            //           // child: Text(
-            //           //   'Selecionar Data',
-            //           //   style: TextStyle(
-            //           //     color: Color(0xFFE5E1E6),
-            //           //   ),
-            //           // ),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

@@ -123,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
         foregroundColor: Theme.of(context).colorScheme.onBackground,
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.add),
+            icon: const Icon(Icons.add_rounded),
             onPressed: () => _openTransactionFormModal(context),
             color: Theme.of(context).colorScheme.onBackground,
           ),
@@ -152,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         onPressed: () => _openTransactionFormModal(context),
         elevation: 5,
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add_rounded),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
