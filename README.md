@@ -15,8 +15,8 @@ App para cadastro de despesas pessoais desenvolvido com a linguagem Dart e frame
 
 <br>
 <div display: inline_block align="center">
-   <img src="./lib/assets/img/screenshots/screenshot_01.png" width="300" alt="Screenshot pergunta 1"/>
-   <img src="./lib/assets/img/screenshots/screenshot_02.png" width="300" alt="Screenshot tela conclusão"/>
+   <img src=".assets/img/screenshots/screenshot_01.png" width="300" alt="Screenshot pergunta 1"/>
+   <img src=".assets/img/screenshots/screenshot_02.png" width="300" alt="Screenshot tela conclusão"/>
 </div>
 
 ## :file_folder: Acesso ao projeto
