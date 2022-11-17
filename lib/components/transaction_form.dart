@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TransactionForm extends StatefulWidget {
   final void Function(String, double) onSubmit;
@@ -10,19 +11,47 @@ class TransactionForm extends StatefulWidget {
 }
 
 class _TransactionFormState extends State<TransactionForm> {
-  final titleController = TextEditingController();
-
-  final valueController = TextEditingController();
+  final _titleController = TextEditingController();
+  final _valueController = TextEditingController();
+  DateTime? _selectedDate;
 
   _submitForm() {
-    final title = titleController.text;
-    final value = double.tryParse(valueController.text) ?? 0.0;
+    final title = _titleController.text;
+    final value = double.tryParse(_valueController.text) ?? 0.0;
 
     if (title.isEmpty || value <= 0) {
       return;
     }
 
     widget.onSubmit(title, value);
+  }
+
+  _showDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2020),
+      lastDate: DateTime.now(),
+      builder: (context, child) => Theme(
+        data: ThemeData().copyWith(
+          colorScheme: ColorScheme.dark(
+            primary: Theme.of(context).colorScheme.primary,
+            onPrimary: Theme.of(context).colorScheme.onPrimary,
+            surface: const Color(0xFF48398D),
+          ),
+          dialogBackgroundColor: Theme.of(context).colorScheme.background,
+        ),
+        child: child!,
+      ),
+    ).then((pickedDate) {
+      if (pickedDate == null) {
+        return;
+      }
+
+      setState(() {
+        _selectedDate = pickedDate;
+      });
+    });
   }
 
   @override
@@ -43,7 +72,7 @@ class _TransactionFormState extends State<TransactionForm> {
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 8, 0, 18),
               child: TextField(
-                controller: titleController,
+                controller: _titleController,
                 onSubmitted: (_) => _submitForm(),
                 decoration: const InputDecoration(
                   labelText: 'Título',
@@ -65,7 +94,7 @@ class _TransactionFormState extends State<TransactionForm> {
               ),
             ),
             TextField(
-              controller: valueController,
+              controller: _valueController,
               keyboardType:
                   const TextInputType.numberWithOptions(decimal: true),
               onSubmitted: (_) => _submitForm(),
@@ -85,6 +114,46 @@ class _TransactionFormState extends State<TransactionForm> {
                     color: Color(0xFFE5E1E6),
                   ),
                 ),
+              ),
+            ),
+            SizedBox(
+              height: 80,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      _selectedDate == null
+                          ? 'Nenhuma data selecionada!'
+                          : 'Data Selecionada: ${DateFormat('dd/MM/y').format(_selectedDate!)}',
+                      style: const TextStyle(
+                        color: Color(0xFFE5E1E6),
+                      ),
+                    ),
+                  ),
+                  TextButton.icon(
+                    style: TextButton.styleFrom(
+                      // side: const BorderSide(
+                      //   width: 1.3,
+                      //   color: Color(0xFFE5E1E6),
+                      // ),
+                      backgroundColor: Theme.of(context).colorScheme.background,
+                    ),
+                    icon: const Icon(
+                      Icons.calendar_today_rounded,
+                      color: Color(0xFFE5E1E6),
+                    ),
+                    onPressed: _showDatePicker,
+                    label: const Padding(
+                      padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                      // child: Text(
+                      //   'Selecionar Data',
+                      //   style: TextStyle(
+                      //     color: Color(0xFFE5E1E6),
+                      //   ),
+                      // ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Row(

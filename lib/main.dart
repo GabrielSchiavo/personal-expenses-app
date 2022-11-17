@@ -29,6 +29,7 @@ class ExpensesApp extends StatelessWidget {
           onBackground: const Color(0xFFE5E1E6),
           outline: const Color(0xFF938F99),
           shadow: const Color(0xFF000000),
+          surface: const Color(0xFFC9BEFF)
         ),
         textTheme: tema.textTheme.copyWith(
           headlineSmall: const TextStyle(
