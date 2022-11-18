@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:personal_expenses/components/chart.dart';
 import 'dart:math';
 import './components/transaction_form.dart';
@@ -113,37 +112,48 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final appBar = AppBar(
+      title: const Text(
+        'Despesas Pessoais',
+      ),
+      backgroundColor: Theme.of(context).colorScheme.background,
+      foregroundColor: Theme.of(context).colorScheme.onBackground,
+      actions: <Widget>[
+        IconButton(
+          icon: const Icon(Icons.add_rounded),
+          onPressed: () => _openTransactionFormModal(context),
+          color: Theme.of(context).colorScheme.onBackground,
+        ),
+      ],
+
+      //Altera a cor e os icones da statusBar
+      // systemOverlayStyle: const SystemUiOverlayStyle(
+      //   statusBarColor: Color(0xFF1C1B1F),
+      //   statusBarIconBrightness: Brightness.light,
+      //   statusBarBrightness: Brightness.dark,
+      // ),
+    );
+
+    final availableHeight =
+        MediaQuery.of(context).size.height - appBar.preferredSize.height - MediaQuery.of(context).padding.top;
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        title: const Text(
-          'Despesas Pessoais',
-        ),
-        backgroundColor: Theme.of(context).colorScheme.background,
-        foregroundColor: Theme.of(context).colorScheme.onBackground,
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.add_rounded),
-            onPressed: () => _openTransactionFormModal(context),
-            color: Theme.of(context).colorScheme.onBackground,
-          ),
-        ],
-
-        //Altera a cor e os icones da statusBar
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Color(0xFF1C1B1F),
-          statusBarIconBrightness: Brightness.light,
-          statusBarBrightness: Brightness.dark,
-        ),
-      ),
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Chart(_recentTransactions),
-              TransactionList(_transactions, _removeTransaction),
+              SizedBox(
+                height: availableHeight * 0.22,
+                child: Chart(_recentTransactions),
+              ),
+              SizedBox(
+                height: availableHeight * 0.74,
+                child: TransactionList(_transactions, _removeTransaction),
+              ),
             ],
           ),
         ),

@@ -23,7 +23,7 @@ class _TransactionFormState extends State<TransactionForm> {
     // Transforma a data no formato String em DateTime novamente:
     DateTime date = DateFormat('dd/MM/y').parse(stringDate);
 
-    if (title.isEmpty || value <= 0 || _selectedDate == null) {
+    if (title.isEmpty || value <= 0 /*|| _selectedDate == null*/) {
       return;
     }
 
