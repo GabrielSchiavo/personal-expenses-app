@@ -70,6 +70,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [];
+  bool _showChart = false;
 
   List<Transaction> get _recentTransactions {
     return _transactions.where((tr) {
@@ -112,13 +113,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
     final appBar = AppBar(
       title: const Text(
         'Despesas Pessoais',
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
       foregroundColor: Theme.of(context).colorScheme.onBackground,
-      actions: <Widget>[
+      actions: [
+        if(isLandscape)
+        IconButton(
+          icon: Icon(_showChart ? Icons.list_rounded : Icons.bar_chart_rounded),
+          onPressed: () {
+            setState(() {
+              _showChart = !_showChart;
+            });
+          },
+          color: Theme.of(context).colorScheme.onBackground,
+        ),
         IconButton(
           icon: const Icon(Icons.add_rounded),
           onPressed: () => _openTransactionFormModal(context),
@@ -134,8 +148,9 @@ class _MyHomePageState extends State<MyHomePage> {
       // ),
     );
 
-    final availableHeight =
-        MediaQuery.of(context).size.height - appBar.preferredSize.height - MediaQuery.of(context).padding.top;
+    final availableHeight = MediaQuery.of(context).size.height -
+        appBar.preferredSize.height -
+        MediaQuery.of(context).padding.top;
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -146,14 +161,36 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(
-                height: availableHeight * 0.22,
-                child: Chart(_recentTransactions),
-              ),
-              SizedBox(
-                height: availableHeight * 0.74,
-                child: TransactionList(_transactions, _removeTransaction),
-              ),
+              // if (isLandscape)
+              //   Row(
+              //     mainAxisAlignment: MainAxisAlignment.start,
+              //     children: [
+              //       const Text(
+              //         'Exibir Gráfico',
+              //         style: TextStyle(color: Color(0xFFE5E1E6)),
+              //       ),
+              //       Switch(
+              //         value: _showChart,
+              //         onChanged: ((value) {
+              //           setState(() {
+              //             _showChart = value;
+              //           });
+              //         }),
+              //         activeColor: Theme.of(context).colorScheme.primary,
+              //         inactiveTrackColor: Theme.of(context).colorScheme.outline,
+              //       ),
+              //     ],
+              //   ),
+              if (_showChart || !isLandscape)
+                SizedBox(
+                  height: availableHeight * (isLandscape ? 0.65 : 0.22),
+                  child: Chart(_recentTransactions),
+                ),
+              if (!_showChart || !isLandscape)
+                SizedBox(
+                  height: availableHeight * 0.73,
+                  child: TransactionList(_transactions, _removeTransaction),
+                ),
             ],
           ),
         ),
