@@ -1,6 +1,9 @@
+import 'dart:math';
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_expenses/components/chart.dart';
-import 'dart:math';
 import './components/transaction_form.dart';
 import './components/transaction_list.dart';
 import 'models/transaction.dart';
@@ -111,51 +114,54 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Widget _getIconButton(IconData icon, Function() fn) {
+    return Platform.isIOS
+        ? GestureDetector(onTap: fn, child: Icon(icon))
+        : IconButton(
+            icon: Icon(icon),
+            onPressed: fn,
+            color: Theme.of(context).colorScheme.onBackground,
+          );
+  }
+
   @override
   Widget build(BuildContext context) {
-    bool isLandscape =
-        MediaQuery.of(context).orientation == Orientation.landscape;
+    final mediaQuery = MediaQuery.of(context);
+    bool isLandscape = mediaQuery.orientation == Orientation.landscape;
 
-    final appBar = AppBar(
-      title: const Text(
-        'Despesas Pessoais',
-      ),
-      backgroundColor: Theme.of(context).colorScheme.background,
-      foregroundColor: Theme.of(context).colorScheme.onBackground,
-      actions: [
-        if(isLandscape)
-        IconButton(
-          icon: Icon(_showChart ? Icons.list_rounded : Icons.bar_chart_rounded),
-          onPressed: () {
+    final iconList =
+        Platform.isIOS ? CupertinoIcons.list_bullet : Icons.list_rounded;
+    final iconChart = Platform.isIOS
+        ? CupertinoIcons.chart_bar_alt_fill
+        : Icons.bar_chart_rounded;
+
+    final actions = <Widget>[
+      if (isLandscape)
+        _getIconButton(
+          _showChart ? iconList : iconChart,
+          () {
             setState(() {
               _showChart = !_showChart;
             });
           },
-          color: Theme.of(context).colorScheme.onBackground,
         ),
-        IconButton(
-          icon: const Icon(Icons.add_rounded),
-          onPressed: () => _openTransactionFormModal(context),
-          color: Theme.of(context).colorScheme.onBackground,
-        ),
-      ],
+      _getIconButton(
+        Platform.isIOS ? CupertinoIcons.add : Icons.add_rounded,
+        () => _openTransactionFormModal(context),
+      ),
+    ];
 
-      //Altera a cor e os icones da statusBar
-      // systemOverlayStyle: const SystemUiOverlayStyle(
-      //   statusBarColor: Color(0xFF1C1B1F),
-      //   statusBarIconBrightness: Brightness.light,
-      //   statusBarBrightness: Brightness.dark,
-      // ),
+    final PreferredSizeWidget appBar = AppBar(
+      title: const Text('Despesas Pessoais'),
+      actions: actions,
     );
 
-    final availableHeight = MediaQuery.of(context).size.height -
+    final availableHeight = mediaQuery.size.height -
         appBar.preferredSize.height -
-        MediaQuery.of(context).padding.top;
+        mediaQuery.padding.top;
 
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: appBar,
-      body: SingleChildScrollView(
+    final bodyPage = SafeArea(
+      child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Column(
@@ -169,7 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
               //         'Exibir Gráfico',
               //         style: TextStyle(color: Color(0xFFE5E1E6)),
               //       ),
-              //       Switch(
+              //       Switch.adaptive(
               //         value: _showChart,
               //         onChanged: ((value) {
               //           setState(() {
@@ -188,20 +194,54 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               if (!_showChart || !isLandscape)
                 SizedBox(
-                  height: availableHeight * 0.73,
+                  height: availableHeight * (isLandscape ? 1 : 0.73),
                   child: TransactionList(_transactions, _removeTransaction),
                 ),
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-        onPressed: () => _openTransactionFormModal(context),
-        elevation: 5,
-        child: const Icon(Icons.add_rounded),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
+
+    return Platform.isIOS
+        ? CupertinoPageScaffold(
+            navigationBar: CupertinoNavigationBar(
+              middle: const Text('Despesas Pessoais'),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: actions,
+              ),
+            ),
+            child: bodyPage,
+          )
+        : Scaffold(
+            backgroundColor: Theme.of(context).colorScheme.background,
+            appBar: AppBar(
+              title: const Text(
+                'Despesas Pessoais',
+              ),
+              backgroundColor: Theme.of(context).colorScheme.background,
+              foregroundColor: Theme.of(context).colorScheme.onBackground,
+              actions: actions,
+
+              //Altera a cor e os icones da statusBar
+              // systemOverlayStyle: const SystemUiOverlayStyle(
+              //   statusBarColor: Color(0xFF1C1B1F),
+              //   statusBarIconBrightness: Brightness.light,
+              //   statusBarBrightness: Brightness.dark,
+              // ),
+            ),
+            body: bodyPage,
+            floatingActionButton: Platform.isIOS
+                ? Container()
+                : FloatingActionButton(
+                    backgroundColor:
+                        Theme.of(context).colorScheme.primaryContainer,
+                    onPressed: () => _openTransactionFormModal(context),
+                    elevation: 5,
+                    child: const Icon(Icons.add_rounded),
+                  ),
+            floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+          );
   }
 }
