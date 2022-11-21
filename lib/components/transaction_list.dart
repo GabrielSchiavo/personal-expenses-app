@@ -12,7 +12,7 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return transactions.isEmpty
         ? LayoutBuilder(
-             builder: (ctx, constraints) {
+            builder: (ctx, constraints) {
               return Column(
                 children: [
                   const SizedBox(height: 20),
@@ -80,11 +80,22 @@ class TransactionList extends StatelessWidget {
                       color: Color(0xFF938F99),
                     ),
                   ),
-                  trailing: IconButton(
-                    icon: const Icon(Icons.delete_forever_rounded),
-                    color: Theme.of(context).colorScheme.error,
-                    onPressed: (() => onRemove(tr.id)),
-                  ),
+                  trailing: MediaQuery.of(context).size.width > 480
+                      ? TextButton.icon(
+                          onPressed: () => onRemove(tr.id),
+                          icon: Icon(Icons.delete,
+                              color: Theme.of(context).colorScheme.error),
+                          label: Text(
+                            'Excluir',
+                            style:
+                                TextStyle(color: Theme.of(context).colorScheme.error),
+                          ),
+                        )
+                      : IconButton(
+                          icon: const Icon(Icons.delete_forever_rounded),
+                          color: Theme.of(context).colorScheme.error,
+                          onPressed: (() => onRemove(tr.id)),
+                        ),
                 ),
               );
             },
