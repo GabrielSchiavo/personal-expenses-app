@@ -81,33 +81,33 @@ class _TransactionFormState extends State<TransactionForm> {
                   child: TextField(
                     controller: _titleController,
                     onSubmitted: (_) => _submitForm(),
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       suffixIcon: Icon(
                       Icons.title_rounded,
-                      color: Color(0xFF938F99),
+                      color: Theme.of(context).colorScheme.outline,
                     ),
                       labelText: 'Título',
                       labelStyle: TextStyle(
-                        color: Color(0xFFE5E1E6),
+                        color: Theme.of(context).colorScheme.onBackground,
                         fontWeight: FontWeight.normal,
                       ),
                       hintText: 'Digite um título',
                       hintStyle: TextStyle(
-                        color: Color(0xFF938F99),
+                        color: Theme.of(context).colorScheme.outline,
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF938F99),
+                          color: Theme.of(context).colorScheme.outline,
                         ),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderRadius: const BorderRadius.all(Radius.circular(10)),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFFC9BEFF),
+                          color: Theme.of(context).colorScheme.primary,
                         ),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderRadius: const BorderRadius.all(Radius.circular(10)),
                       ),
-                      focusColor: Color(0xFFC9BEFF),
+                      focusColor: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 ),
@@ -120,33 +120,33 @@ class _TransactionFormState extends State<TransactionForm> {
                     keyboardType:
                         const TextInputType.numberWithOptions(decimal: true),
                     onSubmitted: (_) => _submitForm(),
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       suffixIcon: Icon(
                         Icons.attach_money_rounded,
-                        color: Color(0xFF938F99),
+                        color: Theme.of(context).colorScheme.outline,
                       ),
                       labelText: 'Valor',
                       labelStyle: TextStyle(
-                        color: Color(0xFFE5E1E6),
+                        color: Theme.of(context).colorScheme.onBackground,
                         fontWeight: FontWeight.normal,
                       ),
                       hintText: '000.00',
                       hintStyle: TextStyle(
-                        color: Color(0xFF938F99),
+                        color: Theme.of(context).colorScheme.outline,
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF938F99),
+                          color: Theme.of(context).colorScheme.outline,
                         ),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderRadius: const BorderRadius.all(Radius.circular(10)),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFFC9BEFF),
+                          color: Theme.of(context).colorScheme.primary,
                         ),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderRadius: const BorderRadius.all(Radius.circular(10)),
                       ),
-                      focusColor: Color(0xFFC9BEFF),
+                      focusColor: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 ),
@@ -154,33 +154,33 @@ class _TransactionFormState extends State<TransactionForm> {
                   controller: _selectedDate,
                   onSubmitted: (_) => _submitForm(),
                   readOnly: true,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     suffixIcon: Icon(
                       Icons.calendar_today_rounded,
-                      color: Color(0xFF938F99),
+                      color: Theme.of(context).colorScheme.outline,
                     ),
                     labelText: 'Data',
                     labelStyle: TextStyle(
-                      color: Color(0xFFE5E1E6),
+                      color: Theme.of(context).colorScheme.onBackground,
                       fontWeight: FontWeight.normal,
                     ),
                     hintText: 'dd/mm/aaaa',
                     hintStyle: TextStyle(
-                      color: Color(0xFF938F99),
+                      color: Theme.of(context).colorScheme.outline,
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0xFF938F99),
+                        color: Theme.of(context).colorScheme.outline,
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0xFFC9BEFF),
+                        color: Theme.of(context).colorScheme.primary,
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                     ),
-                    focusColor: Color(0xFFC9BEFF),
+                    focusColor: Theme.of(context).colorScheme.primary,
                   ),
                   onTap: _showDatePicker,
                 ),

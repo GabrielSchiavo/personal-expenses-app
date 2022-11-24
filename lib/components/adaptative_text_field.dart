@@ -25,20 +25,19 @@ class AdaptativeTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Platform.isIOS
         ? Padding(
-          padding: const EdgeInsets.only(
-            bottom: 18,
-          ),
-          child: CupertinoTextField(
-              controller: controller,
-              keyboardType: keyboardType,
-              onSubmitted: onSubmitted,
-              placeholder: label,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 6,
-                vertical: 12,
-              )
+            padding: const EdgeInsets.only(
+              bottom: 18,
             ),
-        )
+            child: CupertinoTextField(
+                controller: controller,
+                keyboardType: keyboardType,
+                onSubmitted: onSubmitted,
+                placeholder: label,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 6,
+                  vertical: 12,
+                )),
+          )
         : TextField(
             controller: controller,
             keyboardType: keyboardType,
@@ -46,25 +45,26 @@ class AdaptativeTextField extends StatelessWidget {
             decoration: InputDecoration(
               labelText: label,
               suffixIcon: suffixIcon,
-              labelStyle: const TextStyle(
-                color: Color(0xFFE5E1E6),
+              labelStyle: TextStyle(
+                color: Theme.of(context).colorScheme.onBackground,
                 fontWeight: FontWeight.normal,
               ),
               hintText: hintText,
-              hintStyle: const TextStyle(
-                color: Color(0xFF938F99),
+              hintStyle: TextStyle(
+                color: Theme.of(context).colorScheme.outline,
               ),
-              enabledBorder: const OutlineInputBorder(
+              enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Color(0xFF938F99),
+                  color: Theme.of(context).colorScheme.outline,
                 ),
               ),
-              focusedBorder: const OutlineInputBorder(
+              focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Color(0xFFC9BEFF),
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
-              focusColor: const Color(0xFFC9BEFF),
-            ));
+              focusColor: Theme.of(context).colorScheme.primary,
+            ),
+          );
   }
 }

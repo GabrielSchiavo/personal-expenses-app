@@ -24,8 +24,8 @@ class AdaptativeButton extends StatelessWidget {
             onPressed: onPressed,
             child: Text(
               label,
-              style: const TextStyle(
-                color: Color(0xFF312075),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onPrimary,
               ),
             ),
           );

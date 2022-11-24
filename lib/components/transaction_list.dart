@@ -67,17 +67,12 @@ class TransactionList extends StatelessWidget {
                   ),
                   title: Text(
                     tr.title,
-                    style: const TextStyle(
-                      fontFamily: 'RobotoFlex',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Color(0xFFE5E1E6),
-                    ),
+                    style: Theme.of(context).textTheme.headline1,
                   ),
                   subtitle: Text(
                     DateFormat('d MMM y').format(tr.date),
-                    style: const TextStyle(
-                      color: Color(0xFF938F99),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.outline,
                     ),
                   ),
                   trailing: MediaQuery.of(context).size.width > 480
