@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:personal_expenses/components/adaptative_button.dart';
-import 'package:personal_expenses/components/adaptative_date_picker.dart';
 import 'package:personal_expenses/components/adaptative_text_field.dart';
 
 class TransactionForm extends StatefulWidget {
@@ -80,60 +79,78 @@ class _TransactionFormState extends State<TransactionForm> {
               children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 18, 0, 18),
-                  child: AdaptativeTextField(
+                  child: TextField(
                     controller: _titleController,
                     onSubmitted: (_) => _submitForm(),
-                    label: 'Título',
-                    suffixIcon: const Icon(
+                    decoration: const InputDecoration(
+                      suffixIcon: Icon(
                       Icons.title_rounded,
                       color: Color(0xFF938F99),
                     ),
-                    hintText: 'Digite um título',
+                      labelText: 'Título',
+                      labelStyle: TextStyle(
+                        color: Color(0xFFE5E1E6),
+                        fontWeight: FontWeight.normal,
+                      ),
+                      hintText: 'Digite um título',
+                      hintStyle: TextStyle(
+                        color: Color(0xFF938F99),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xFF938F99),
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xFFC9BEFF),
+                        ),
+                      ),
+                      focusColor: Color(0xFFC9BEFF),
+                    ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
                     bottom: 18,
                   ),
-                  child: AdaptativeTextField(
+                  child: TextField(
                     controller: _valueController,
                     keyboardType:
                         const TextInputType.numberWithOptions(decimal: true),
                     onSubmitted: (_) => _submitForm(),
-                    label: 'Valor',
-                    suffixIcon: const Icon(
-                      Icons.attach_money_rounded,
-                      color: Color(0xFF938F99),
+                    decoration: const InputDecoration(
+                      suffixIcon: Icon(
+                        Icons.attach_money_rounded,
+                        color: Color(0xFF938F99),
+                      ),
+                      labelText: 'Valor',
+                      labelStyle: TextStyle(
+                        color: Color(0xFFE5E1E6),
+                        fontWeight: FontWeight.normal,
+                      ),
+                      hintText: '000.00',
+                      hintStyle: TextStyle(
+                        color: Color(0xFF938F99),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xFF938F99),
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0xFFC9BEFF),
+                        ),
+                      ),
+                      focusColor: Color(0xFFC9BEFF),
                     ),
-                    hintText: '000.00',
                   ),
                 ),
-                // AdaptativeTextField(
-                //     controller: _selectedDate,
-                //     keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                //     onSubmitted: (_) => _submitForm(),
-                //     label: 'Data',
-                //     suffixIcon: const Icon(
-                //       Icons.calendar_today_rounded,
-                //       color: Color(0xFF938F99),
-                //     ),
-                //     hintText: 'dd/mm/aaaa',
-                //   ),
-
-                //Novo Date Picker
-                // AdaptativeDatePicker(
-                //   selectedDate: _selectedDate,
-                //   onDateChanged: (newDate) {
-                //     setState(() {
-                //       _selectedDate = newDate;
-                //     });
-                //   },
-                // ),
-
                 TextField(
                   controller: _selectedDate,
-                  keyboardType:
-                      const TextInputType.numberWithOptions(decimal: true),
                   onSubmitted: (_) => _submitForm(),
                   readOnly: true,
                   decoration: const InputDecoration(
@@ -154,6 +171,7 @@ class _TransactionFormState extends State<TransactionForm> {
                       borderSide: BorderSide(
                         color: Color(0xFF938F99),
                       ),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
