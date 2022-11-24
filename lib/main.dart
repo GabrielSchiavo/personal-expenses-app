@@ -46,7 +46,7 @@ class ExpensesApp extends StatelessWidget {
             fontFamily: 'RobotoFlex',
             color: Color(0xFFE5E1E6),
           ),
-          headline1: const TextStyle(
+          bodyLarge: const TextStyle(
             fontSize: 16,
             fontFamily: 'RobotoFlex',
             color: Color(0xFFE5E1E6),

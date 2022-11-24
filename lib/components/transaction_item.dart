@@ -40,7 +40,7 @@ class TransactionItem extends StatelessWidget {
         ),
         title: Text(
           tr.title,
-          style: Theme.of(context).textTheme.headline1,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         subtitle: Text(
           DateFormat('d MMM y').format(tr.date),
