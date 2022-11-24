@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:personal_expenses/components/adaptative_button.dart';
-import 'package:personal_expenses/components/adaptative_text_field.dart';
 
 class TransactionForm extends StatefulWidget {
   final void Function(String, double, DateTime) onSubmit;
@@ -106,6 +105,7 @@ class _TransactionFormState extends State<TransactionForm> {
                         borderSide: BorderSide(
                           color: Color(0xFFC9BEFF),
                         ),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
                       focusColor: Color(0xFFC9BEFF),
                     ),
@@ -144,6 +144,7 @@ class _TransactionFormState extends State<TransactionForm> {
                         borderSide: BorderSide(
                           color: Color(0xFFC9BEFF),
                         ),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
                       focusColor: Color(0xFFC9BEFF),
                     ),
@@ -177,6 +178,7 @@ class _TransactionFormState extends State<TransactionForm> {
                       borderSide: BorderSide(
                         color: Color(0xFFC9BEFF),
                       ),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                     focusColor: Color(0xFFC9BEFF),
                   ),
