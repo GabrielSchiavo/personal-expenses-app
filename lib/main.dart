@@ -19,6 +19,7 @@ class ExpensesApp extends StatelessWidget {
 
     return MaterialApp(
       home: const MyHomePage(),
+      debugShowCheckedModeBanner: false,
       theme: tema.copyWith(
         useMaterial3: true,
         colorScheme: tema.colorScheme.copyWith(
