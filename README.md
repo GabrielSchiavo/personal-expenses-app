@@ -27,9 +27,12 @@ Após baixar o projeto, você pode abrir com o Visual Studio Code. Para o projet
 
 * Flutter - Versão >=2.18.2 <3.0.0
 
-Abra um terminal na pasta raiz do projeto e execute este comando:
+Abra um terminal na pasta raiz do projeto e execute estes comandos:
 ```bash
 dart pub get
+```
+```bash
+flutter pub get
 ```
 
 Agora ao abrir o projeto com o Visual Studio Code, abra o arquivo "main.dart" localizado na pasta "lib", agora pode executar ou depurar no seu smartphone, em um emulador Android ou iOS, no Windows ou no navegador.
