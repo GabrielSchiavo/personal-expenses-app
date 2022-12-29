@@ -8,7 +8,7 @@
 PRODUCT_NAME = expenses
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.expenses
+PRODUCT_BUNDLE_IDENTIFIER = com.gabriel.kschiavo.expenses
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2022 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2022 com.gabriel.kschiavo. All rights reserved.
